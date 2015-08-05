@@ -20,16 +20,16 @@
     <?php
     require_once "includes/functions.php";
     ?>
-    <input id="refreshSports" type="button" name="submit" value="Refresh"> <!--Removed the form just cause it is easier-->
+    <input id="refreshSports" type="button" name="submit" value="Refresh">
     <script type="text/javascript">
-    $("#refreshSports").click(function() { //Made on click function for the button since I removed form.
+    $("#refreshSports").click(function() {
       $("#myUl").empty()
       $.ajax({
         url: 'includes/parse.php',
         method: "POST",
-        data: {str: 'http://news.yahoo.com/rss/sports'}, //Data object containing the string to send to the functions.php
-        success: function(result) { //Result is the value returned from the 'echo' statement in the PHP
-        console.log($.parseXML(result)); //The parsed xml returned from the server Need to format and insert back into the page
+        data: {str: 'http://news.yahoo.com/rss/sports'},
+        success: function(result) {
+        console.log($.parseXML(result));
         $(result).find('item').each(function(i, e) {
           var title = $(e).find('title').text();
           var link = $(e).find('link').text();
