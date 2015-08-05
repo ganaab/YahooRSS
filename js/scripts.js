@@ -6,7 +6,6 @@ function myFunction(url) {
       if (data.responseData.feed && data.responseData.feed.entries) {
         $.each(data.responseData.feed.entries, function (i, e) {
           document.getElementById("myUl").innerHTML += '<li><a href="'+e.link+'">'+e.title+'</a></li>';
-
         });
       }
     }

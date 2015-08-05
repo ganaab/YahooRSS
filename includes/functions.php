@@ -1,20 +1,15 @@
 <?php
 
-	function getFeed($feed_url) {
+function getFeed($feed_url) {
 
-	    $content = file_get_contents($feed_url);
-	    $x = new SimpleXmlElement($content);
+	$content = file_get_contents($feed_url);
+	$x = new SimpleXmlElement($content);
 
-	    echo "<ul>";
+	echo "<ul id='myUl'>";
 
-	    foreach($x->channel->item as $entry) {
-	        echo "<li><a href='$entry->link' title='$entry->title'>" . $entry->title . "</a></li>";
-	    }
-	    echo "</ul>";
-
+	foreach($x->channel->item as $entry) {
+		echo "<li><a href='$entry->link' title='$entry->title'>" . $entry->title . "</a></li>";
 	}
-	function refresher($feed_url) {
-		getFeed($feed_url);
-	}
-
+	echo "</ul>";
+}
 ?>
